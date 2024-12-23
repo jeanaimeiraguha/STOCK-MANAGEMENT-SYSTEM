@@ -6,7 +6,7 @@ if (isset($_POST['add'])) {
     # code...
     $Product_id=$_POST['Product_id'];
     $Product_Name=$_POST['Product_Name'];
-    $insert=mysqli_query($conn, "INSERT INTO products VALUES('','$Product_id','$Product_Name')");
+    $insert=mysqli_query($conn, "INSERT INTO products VALUES('$Product_id','$Product_Name')");
     if ($insert) {
         # code...
         echo "Product added successfully";
