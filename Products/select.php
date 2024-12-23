@@ -21,7 +21,7 @@ while($row=mysqli_fetch_array($select)){
             <td><?php echo $row['Product_id']?></td>
             <td><?php echo $row['Product_Name']?></td>
             <td><a href="delete.php?Product_id=<?php echo $row['Product_id']?>">Delete</a></td>
-            <td><a href=""></a></td>
+            <td><a href="update.php?Product_id=<?php echo $row['Product_id']?>">Update</a></td>
         </tr>
         <?php
         }?>

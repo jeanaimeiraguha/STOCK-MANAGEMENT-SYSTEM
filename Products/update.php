@@ -19,9 +19,9 @@ $row=mysqli_fetch_array($select);
 </head>
 <body>
     <form action="" method="post">
-    Product Id <input type="text" name="Product_id"value="<?php echo $row['Product_id']?>"> <br>
+    Product Id <input type="text" name="Product_id" value="<?php echo $row['Product_id']?>"> <br>
      Product Name   <input type="text" name="Product_Name"value="<?php $row['Product_name']?>"> <br>
-     <button name="add">Add New Product</button>
+     <button name="add">Update Product</button>
     </form>
     <?php
     include('conn.php');
@@ -29,7 +29,7 @@ if (isset($_POST['add'])) {
     # code...
     $Product_id=$_POST['Product_id'];
     $Product_Name=$_POST['Product_Name'];
-    $update=mysqli_query($conn, "UPDATE Products set Product_id='$Product_id','$Product_Name' WHERE Product_id='$Product_id'");
+    $update=mysqli_query($conn, "UPDATE products SET Product_id='$Product_id','$Product_Name' WHERE Product_id='$Product_id'");
     if ($update) {
         # code...
         header('location:select.php');
