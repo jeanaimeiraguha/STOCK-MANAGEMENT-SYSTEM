@@ -14,17 +14,28 @@ $row=mysqli_fetch_array($select);
 </head>
 <body>
     <form action="" method="post">
-        
+    Product Id  <input type="text" name="Product_id"> <br>
+     Product Name   <input type="text" name="Product_Name"> <br>
+     <button name="add">Add New Product</button>
     </form>
-</body>
-</html>
+    <?php
+if (isset($_POST['add'])) {
+    # code...
+    $Product_id=$_POST['Product_id'];
+    $Product_Name=$_POST['Product_Name'];
+    $update=mysqli_query($conn, "UPDATE Products set Product_id='$Product_id','$Product_Name' WHERE Product_id='$Product_id'");
+    if ($update) {
+        # code...
+        header('location:select.php');
+        //echo "Product added successfully";
+    }
+    else{
+        echo "failed";
+    }
+}
+?>
 
 
 
-<?php
-
-
-
-$update=mysqli_query($conn, "UPDATE products SET Product_id='$Product_id',Product_name='$Product_id' WHERE Product_id='$Product_id'");
 
 ?>
