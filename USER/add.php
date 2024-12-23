@@ -2,7 +2,8 @@
 include('config/conn.php');
 if (isset($_POST['add'])) {
     # code...
-    $User_Name,=$_POST['USer_Name,'];
+    $User_Name=$_POST['User_Name'];
+    $Password=$_POST['Password'];
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ if (isset($_POST['add'])) {
 </head>
 <body>
     <form action="" method="post">
-    Username    <input type="text" name="User_Name,"> <br>
+    Username    <input type="text" name="User_Name"> <br>
      Password   <input type="text" name="Password"> <br>
      <button name="add">Add New User</button>
     </form>
