@@ -14,8 +14,8 @@ $row=mysqli_fetch_array($select);
 </head>
 <body>
     <form action="" method="post">
-    Product Id  <input type="text" name="Product_id"> <br>
-     Product Name   <input type="text" name="Product_Name"> <br>
+    Product Id  <input type="text" name="Product_id" value="<?php echo $row['Product_id']?>"> <br>
+     Product Name   <input type="text" name="Product_Name" value="<?php $row['Product_name']?>"> <br>
      <button name="add">Add New Product</button>
     </form>
     <?php
