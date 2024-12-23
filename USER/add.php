@@ -1,6 +1,8 @@
 <?php
 include('config/conn.php');
-
+if (isset($_POST['add'])) {
+    # code...
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +13,9 @@ include('config/conn.php');
 </head>
 <body>
     <form action="" method="post">
-        <input type="text" name="User_Name">
-        <input type="text" name="User_Name">
+    Username    <input type="text" name="User_Name,"> <br>
+     Password   <input type="text" name="Password"> <br>
+     <button name="add">Add New User</button>
     </form>
     
 </body>
