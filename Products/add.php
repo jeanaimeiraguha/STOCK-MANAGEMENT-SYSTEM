@@ -9,7 +9,8 @@ if (isset($_POST['add'])) {
     $insert=mysqli_query($conn, "INSERT INTO products VALUES('$Product_id','$Product_Name')");
     if ($insert) {
         # code...
-        echo "Product added successfully";
+        header('location:select.php');
+        //echo "Product added successfully";
     }
     else{
         echo "failed";
