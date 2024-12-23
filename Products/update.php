@@ -1,6 +1,9 @@
 <?php
+if (isset($_GET['Product_id'])) {
+    # code...
 
 $Product_id=$_GET['Product_id'];
+}
 $select=mysqli_query($conn,"SELECT * FROM products WHERE Product_id='$Product_id'");
 $row=mysqli_fetch_array($select);
 
@@ -33,9 +36,4 @@ if (isset($_POST['add'])) {
         echo "failed";
     }
 }
-?>
-
-
-
-
 ?>
