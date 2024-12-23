@@ -4,6 +4,14 @@ if (isset($_POST['add'])) {
     # code...
     $User_Name=$_POST['User_Name'];
     $Password=$_POST['Password'];
+    $insert=mysqli_query($conn, "INSERT INTO `User` VALUES('','$User_Name','$Password')");
+    if ($insert) {
+        # code...
+        echo "User added successfully";
+    }
+    else{
+        echo "failed";
+    }
 }
 ?>
 <!DOCTYPE html>
