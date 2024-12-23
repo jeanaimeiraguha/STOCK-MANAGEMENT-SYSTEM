@@ -2,6 +2,7 @@
 include('config/conn.php');
 if (isset($_POST['add'])) {
     # code...
+    $User_Name,=$_POST['USer_Name,'];
 }
 ?>
 <!DOCTYPE html>
