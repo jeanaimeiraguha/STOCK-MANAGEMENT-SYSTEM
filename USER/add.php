@@ -1,5 +1,14 @@
 <?php
-include('config/conn.php');
+
+$conn=mysqli_connect('localhost','root','','Shirinyota');
+if ($conn) {
+    # code...
+    echo "connected successfully";
+}
+else{
+    echo "Connection failed";
+}
+
 if (isset($_POST['add'])) {
     # code...
     $User_Name=$_POST['User_Name'];
