@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 session_start();
 
 // Include the database connection
-require_once 'includes/db.php';
+//require_once 'includes/db.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
