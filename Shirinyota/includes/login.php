@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 session_start();
 
 // Include the database connection
-require_once 'includes/db.php';
+//require_once 'includes/db.php';
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
