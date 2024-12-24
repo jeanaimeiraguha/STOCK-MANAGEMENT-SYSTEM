@@ -1,5 +1,5 @@
 <?php
-$conn=mysqli_connect('localhost','root','','Shirinyota');
+$conn=mysqli_connect('localhost','root','','shirinyota');
 if ($conn) {
     # code...
     echo "connected successfully";

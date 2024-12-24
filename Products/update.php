@@ -1,5 +1,12 @@
 <?php
-include('conn.php');  // Connect to the database
+//include('conn.php');  // Connect to the database
+
+$conn=mysqli_connect('localhost','root','','shirinyota ');
+
+if ($conn) {
+    echo "connected";
+    # code...
+}
 
 // Check if 'Product_id' is provided in the URL
 if (isset($_GET['Product_id'])) {
