@@ -21,4 +21,4 @@ CREATE TABLE stock (
 );
 
 -- Insert a sample user (for login)
-INSERT INTO users (username, password) VALUES ('admin', 'adminpassword');
+INSERT INTO users (username, password) VALUES ('Iraguha', 'Iraguha@');
