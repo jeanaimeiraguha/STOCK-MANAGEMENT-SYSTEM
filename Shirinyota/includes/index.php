@@ -116,3 +116,21 @@
     </script>
 </body>
 </html>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $feedback = $_POST['feedback'];
+    if (!empty($feedback)) {
+        $sql = "INSERT INTO feedback (content) VALUES (?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $feedback);
+        if ($stmt->execute()) {
+            echo "Feedback submitted successfully!";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    } else {
+        echo "Feedback cannot be empty.";
+    }
+}
+?>
+
