@@ -1,63 +1,38 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Default MySQL username
-$password = ""; // Default password is empty for XAMPP
-$dbname = "shirinyota"; // The name of the database
+$username = "root";
+$password = "";
+$dbname = "shirinyota";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error); // If connection fails, show an error
+    die("Connection failed: " . $conn->connect_error);
 }
 
-
-// Start session to remember the user after login
 session_start();
 
-// Include the database connection
-//require_once 'includes/db.php';
-
-// Check if the form is submitted
+// Handle login
+$error = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the username and password from the form
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Check if the username and password are correct
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
+    // SQL query to fetch user
+    $sql = "SELECT * FROM users WHERE username=? AND password=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // If the user exists, save user ID in the session
         $_SESSION['user_id'] = $username;
-        header('Location: stock_status.php'); // Redirect to the stock status page
+        header('Location: stock_status.php');
         exit();
     } else {
-        $error = "Invalid username or password";
+        $error = "Invalid username or password!";
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-
-        <button type="submit">Login</button>
-    </form>
-
-    <?php if (isset($error)) { echo "<p style='color: red;'>$error</p>"; } ?>
-</body>
-</html>
