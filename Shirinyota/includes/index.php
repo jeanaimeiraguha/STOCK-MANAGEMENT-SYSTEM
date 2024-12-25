@@ -39,7 +39,7 @@
         h2{
             text-align: center;
             margin-top: 270px;
-            color: blue;
+            color: white;
             font: 2rem;
         }
         nav{
