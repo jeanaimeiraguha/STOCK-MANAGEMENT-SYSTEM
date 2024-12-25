@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in
+$isLoggedIn = isset($_SESSION['user_id']); // Initialize $isLoggedIn
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,20 +99,11 @@
         <?php endif; ?>
     </div>
 
-    <div class="feedback-section">
-        <h3>Feedback</h3>
-        <form action="feedback.php" method="post">
-            <textarea name="feedback" placeholder="Write your feedback here..." rows="4" cols="50"></textarea><br>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-
     <footer>
         &copy; <?= date("Y"); ?> SHIRINYOTA Stock Management. All Rights Reserved.
     </footer>
 
     <script>
-        // Real-Time Clock
         function updateClock() {
             const now = new Date();
             const timeString = now.toLocaleTimeString();
@@ -116,21 +114,3 @@
     </script>
 </body>
 </html>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $feedback = $_POST['feedback'];
-    if (!empty($feedback)) {
-        $sql = "INSERT INTO feedback (content) VALUES (?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('s', $feedback);
-        if ($stmt->execute()) {
-            echo "Feedback submitted successfully!";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-    } else {
-        echo "Feedback cannot be empty.";
-    }
-}
-?>
-
