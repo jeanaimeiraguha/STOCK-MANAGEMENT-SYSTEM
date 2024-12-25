@@ -1,4 +1,4 @@
-//<?php
+<?php
 // $servername = "localhost";
 // $username = "root"; // Default MySQL username
 // $password = ""; // Default password is empty for XAMPP
@@ -35,11 +35,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        h2{
+            text-align: center;
+            margin-top: 230px;
+            color: blue;
+            font: 2rem;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body style="background-color: aqua;">
-   <h2>Welcome to Shirinyota Stock</h2> 
+   <h2>WELCOME TO SHIRINYOTA STOCK</h2> 
 </body>
 </html>
