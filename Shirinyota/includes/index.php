@@ -78,7 +78,7 @@ $isLoggedIn = isset($_SESSION['user_id']); // Initialize $isLoggedIn
             <a href="services.php"><i class="fas fa-cogs"></i> Services</a>
             <?php if ($isLoggedIn): ?>
                 <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-                <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <?php else: ?>
                 <a href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
             <?php endif; ?>
