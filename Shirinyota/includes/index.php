@@ -38,9 +38,22 @@
     <style>
         h2{
             text-align: center;
-            margin-top: 230px;
+            margin-top: 270px;
             color: blue;
             font: 2rem;
+        }
+        nav{
+            color: white;
+            float: right;
+            margin-top: -230px;
+        }
+        a{
+            color: black;
+            outline: none;
+            font-size: 20px;
+            padding: 25px;
+            text-decoration:none ;
+            
         }
     </style>
     <meta charset="UTF-8">
@@ -48,6 +61,12 @@
     <title>Document</title>
 </head>
 <body style="background-color: aqua;">
+    <nav>
+        <a href="">Home</a>
+        <a href="">Contact Us</a>
+        <a href="">Services</a>
+        <a href="">Login</a>
+    </nav>
    <h2>WELCOME TO SHIRINYOTA STOCK</h2> 
 </body>
 </html>
