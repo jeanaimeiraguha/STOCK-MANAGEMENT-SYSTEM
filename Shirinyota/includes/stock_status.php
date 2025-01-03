@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost";
 $username = "root"; // Default MySQL username
 $password = ""; // Default password is empty for XAMPP
@@ -21,9 +20,10 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Fetch stock status from the database
+// Fetch stock status from the database, including the date of the latest transaction
 $sql = "SELECT product_name, 
-               SUM(CASE WHEN transaction_type = 'in' THEN quantity ELSE -quantity END) AS stock_quantity
+               SUM(CASE WHEN transaction_type = 'in' THEN quantity ELSE -quantity END) AS stock_quantity,
+               MAX(transaction_date) AS date
         FROM stock
         GROUP BY product_name";
 $result = $conn->query($sql);
@@ -119,14 +119,20 @@ $result = $conn->query($sql);
             <th>Date</th>
         </tr>
         <?php 
-        include('db.php');
-        while ($row = $result->fetch_assoc()): ?>
-        <tr>
-            <td><?= htmlspecialchars($row['product_name']); ?></td>
-            <td><?= $row['stock_quantity']; ?></td>
-            <td><?= $row['date']; ?></td>
-        </tr>
-        <?php endwhile; ?>
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?= htmlspecialchars($row['product_name']); ?></td>
+                <td><?= $row['stock_quantity']; ?></td>
+                <td><?= htmlspecialchars($row['date'] ?? 'N/A'); ?></td>
+            </tr>
+        <?php 
+            endwhile; 
+        } else { ?>
+            <tr>
+                <td colspan="3">No stock data available</td>
+            </tr>
+        <?php } ?>
     </table>
 
     <footer>
