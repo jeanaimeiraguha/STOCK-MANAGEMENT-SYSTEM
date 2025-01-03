@@ -116,11 +116,13 @@ $result = $conn->query($sql);
         <tr>
             <th>Product Name</th>
             <th>Quantity</th>
+            <th>Date</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <td><?= htmlspecialchars($row['product_name']); ?></td>
             <td><?= $row['stock_quantity']; ?></td>
+            <td><?= $row['date']; ?></td>
         </tr>
         <?php endwhile; ?>
     </table>
