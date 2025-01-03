@@ -27,11 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get data from the form
     $product_name = $_POST['product_name'];
     $quantity = $_POST['quantity'];
+    $quantity = $_POST['quantity'];
 
     if ($quantity > 0 && !empty($product_name)) {
         // Insert the new stock-in record into the database
-        $sql = "INSERT INTO stock (product_name, quantity, transaction_type) 
-                VALUES ('$product_name', '$quantity', 'in',date)";
+        $sql = "INSERT INTO stock (product_name, quantity, transaction_type,`date`) 
+                VALUES ('$product_name', '$quantity', 'in','$date')";
         if ($conn->query($sql) === TRUE) {
             $message = "Stock-in recorded successfully!";
         } else {
