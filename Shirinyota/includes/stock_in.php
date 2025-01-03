@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($quantity > 0 && !empty($product_name)) {
         // Insert the new stock-in record into the database
         $sql = "INSERT INTO stock (product_name, quantity, transaction_type) 
-                VALUES ('$product_name', '$quantity', 'in')";
+                VALUES ('$product_name', '$quantity', 'in',date)";
         if ($conn->query($sql) === TRUE) {
             $message = "Stock-in recorded successfully!";
         } else {
@@ -151,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" required>
+        <input type="date" id="date" name="date" required>
 
         <button type="submit"><i class="fas fa-plus-circle"></i> Record Stock In</button>
     </form>
