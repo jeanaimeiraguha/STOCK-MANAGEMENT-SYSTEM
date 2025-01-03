@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get data from the form
     $product_name = $_POST['product_name'];
     $quantity = $_POST['quantity'];
-    $quantity = $_POST['quantity'];
+    $date = $_POST['date'];
 
     if ($quantity > 0 && !empty($product_name)) {
         // Insert the new stock-in record into the database
