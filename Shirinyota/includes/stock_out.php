@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root"; 
-$password = ""; // Default password is empty for XAMPP
+$password = ""; 
 $dbname = "shirinyota"; // The name of the database
 
 // Create connection
