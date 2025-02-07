@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Default MySQL username
+$username = "root";
 $password = ""; // Default password is empty for XAMPP
 $dbname = "shirinyota"; // The name of the database
 
