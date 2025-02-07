@@ -129,5 +129,6 @@ $isLoggedIn = isset($_SESSION['user_id']);
         setInterval(updateClock, 1000);
         updateClock();
     </script>
+    //Just working on ...
 </body>
 </html>
